@@ -1,23 +1,6 @@
 import { useState } from "react";
-import Section from "./components/Section";
-
-const sections = [
-  {
-    title: "Create",
-    description: "Creates an empty Git repository in the current folder.",
-    command: "git init",
-  },
-  {
-    title: "Rename",
-    description: "Renames the current branch to main.",
-    command: "git branch -M main",
-  },
-  {
-    title: "Upload",
-    description: "Sends the main branch to the remote named origin.",
-    command: "git push -u origin main",
-  },
-];
+import Feedback from "./components/Feedback";
+import Guide from "./components/Guide";
 
 function App() {
   const [read, setRead] = useState(0);
@@ -88,16 +71,8 @@ function App() {
         </div>
       </div>
 
-      <main className="px-20 pt-4">
-        {sections.map((section) => (
-          <Section
-            key={section.title}
-            title={section.title}
-            description={section.description}
-            command={section.command}
-          />
-        ))}
-      </main>
+      <Guide />
+      <Feedback />
     </div>
   );
 }
